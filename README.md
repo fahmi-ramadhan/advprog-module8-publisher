@@ -13,3 +13,9 @@ URL tersebut adalah alamat dari _message broker_ yang digunakan. URL tersebut sa
 ### Running RabbitMQ as Message Broker
 
 ![RabbitMQ](https://i.imgur.com/fIOenaS.png)
+
+### Sending and Processing Event
+
+![Sending and Processing Event](https://i.imgur.com/YgmehpZ.png)
+
+Ketika saya menjalankan `cargo run` pada _publisher_, ia mengirim lima _events_ ke RabbitMQ yang kemudian disimpan dalam _queue_ `user_created`. Kemudian, _subscriber_ yang juga dijalankan dengan `cargo run` melakukan _listening_ terhadap _queue_ tersebut, dan setiap _event_ yang diterima diproses oleh `UserCreatedHandler` sehingga menghasilkan _output_ pada konsol _subscriber_ yang menunjukkan detail _event_ yang diterima dan diproses dari RabbitMQ.
